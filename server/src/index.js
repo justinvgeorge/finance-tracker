@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const authRoutes = require("./routes/authRoute.js");
+const authRoutes = require("./routes/authRoutes.js");
+const categoryRoutes = require("./routes/categoryRoutes.js");
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/categories", categoryRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
